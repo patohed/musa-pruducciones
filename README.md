@@ -4,11 +4,13 @@ Landing page moderna y estética para Musa Producciones, una productora integral
 
 ## ✨ Características
 
-- **Diseño moderno premium**: Fondo oscuro con paleta de colores inspirada en el logo
-- **Animaciones sutiles**: Implementadas con Framer Motion para una experiencia fluida
+- **Diseño profesional**: Sistema de diseño completo con paleta rosa + negro inspirada en el logo oficial
+- **Animaciones premium**: Framer Motion con efectos glassmorphism, microinteracciones y resplandor
+- **Componentes reutilizables**: AnimatedCard, GradientText, SectionTitle con variants profesionales
 - **Responsive**: Diseño adaptable a todos los dispositivos
 - **Performance optimizado**: Construido con Astro para máxima velocidad
-- **Componentes interactivos**: Header con navegación, formulario de contacto con WhatsApp
+- **Logo oficial integrado**: Logo "Musa" en rosa con animaciones sutiles
+- **Configuración Figma**: MCP integrado para diseño profesional
 
 ## 🎨 Tecnologías
 
@@ -72,10 +74,11 @@ Todos los comandos se ejecutan desde la raíz del proyecto:
 
 ## 🎨 Paleta de Colores
 
-- **Background**: Gris grafito oscuro (#141414)
-- **Primary**: Tonos violeta/magenta del logo (#B86FDD aprox.)
-- **Secondary**: Variaciones del primary
-- **Tipografía**: Inter (sans) y Playfair Display (serif)
+- **Background**: Negro profundo (#0F0F0F)
+- **Primary**: Rosa del logo oficial (#FF9FCD - hsl(330, 100%, 81%))
+- **Card**: Negro con tinte rosa (#1A1316)
+- **Efectos**: Glassmorphism con resplandor rosa
+- **Tipografía**: Poppins (principal), Cormorant Garamond (elegante), Montserrat (complementaria)
 
 ## 📱 Contacto
 
@@ -83,20 +86,58 @@ Todos los comandos se ejecutan desde la raíz del proyecto:
 - **WhatsApp**: +54 9 11 6376-1916
 - **Instagram**: [@musaproducciones_](https://instagram.com/musaproducciones_)
 
-## 📝 Notas para el Cliente
+## 📝 Notas Importantes
 
+- **Logo oficial**: Se utiliza `Logo musa-01.svg` con color rosa #FF9FCD
+- **Sistema de diseño**: Paleta unificada rosa + negro en todo el sitio
+- **Componentes profesionales**: Glassmorphism, gradientes animados, sombras elevadas
 - Las imágenes del portfolio son de muestra de Unsplash. Reemplazalas con tus fotos reales.
 - El formulario de contacto envía automáticamente a WhatsApp con los datos completados.
 - Puedes actualizar los colores editando las variables CSS en `src/styles/global.css`
 - Para agregar más espacios/alianzas, edita el array `venues` en `src/components/sections/Venues.tsx`
 
-## 🚀 Despliegue
+## 🎨 Componentes de Diseño Profesional
 
-Puedes desplegar fácilmente en:
+- **AnimatedCard**: Card con 3 variants (glass, elevated, interactive)
+- **GradientText**: Texto con gradiente rosa animado
+- **SectionTitle**: Títulos de sección con línea decorativa
+- **MusaLogoOfficial**: Logo oficial con animaciones Framer Motion
 
-- **Vercel**: `vercel deploy`
-- **Netlify**: Conecta el repositorio
-- **GitHub Pages**: Con GitHub Actions
+## 🚀 Despliegue en Vercel
+
+El proyecto está configurado para desplegarse automáticamente en Vercel:
+
+### Pasos para Desplegar:
+
+1. **Crear cuenta en Vercel** (si no tienes una):
+   - Ve a [vercel.com](https://vercel.com)
+   - Inicia sesión con tu cuenta de GitHub
+
+2. **Importar el Proyecto**:
+   - Click en "Add New Project"
+   - Selecciona el repositorio: `patohed/musa-pruducciones`
+   - Vercel detectará automáticamente que es un proyecto Astro
+
+3. **Configuración Automática**:
+   - Framework Preset: Astro (detectado automáticamente)
+   - Build Command: `npm run build` (ya configurado)
+   - Output Directory: `dist` (ya configurado)
+   - Install Command: `npm install` (ya configurado)
+
+4. **Deploy**:
+   - Click en "Deploy"
+   - Espera unos minutos mientras Vercel construye el proyecto
+   - Una vez completado, tu sitio estará disponible en: `https://musa-producciones.vercel.app`
+
+### Despliegues Automáticos:
+
+- Cada vez que hagas `git push` a la rama `master`, Vercel desplegará automáticamente los cambios
+- Los pull requests generarán preview deployments para revisar cambios antes de fusionar
+
+### Archivos de Configuración:
+
+- `vercel.json` - Configuración específica de Vercel
+- `astro.config.mjs` - Configurado con el site URL de producción
 
 ## 🔧 Desarrollo
 
