@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SmoothScroll from '../components/SmoothScroll';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Hero from '../components/sections/Hero';
+import About from '../components/sections/About';
+import Services from '../components/sections/Services';
+import Events from '../components/sections/Events';
+import Venues from '../components/sections/Venues';
+import Portfolio from '../components/sections/Portfolio';
+import Contact from '../components/sections/Contact';
+---
+
+<Layout>
+  <SmoothScroll client:load />
+  <Header client:load />
+  
+  <main>
+    <Hero client:load />
+    <About client:visible />
+    <Services client:visible />
+    <Events client:visible />
+    <Venues client:visible />
+    <Portfolio client:visible />
+    <Contact client:visible />
+  </main>
+  
+  <Footer client:visible />
+</Layout>
