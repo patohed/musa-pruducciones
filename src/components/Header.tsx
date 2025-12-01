@@ -55,7 +55,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo oficial */}
           <a href="#inicio" className="group">
-            <MusaLogoOfficial width={80} height={60} />
+            <MusaLogoOfficial width={120} height={90} />
           </a>
 
           {/* Desktop Navigation */}

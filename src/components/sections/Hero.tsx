@@ -64,7 +64,7 @@ export default function Hero({ client }: { client: 'load' }) {
         >
           {/* Logo SVG animado moderno */}
           <motion.div
-            className="mb-12 inline-block relative"
+            className="mb-8 inline-block relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -97,7 +97,7 @@ export default function Hero({ client }: { client: 'load' }) {
             
             {/* Logo oficial con animaciones */}
             <div className="relative">
-              <MusaLogoOfficial width={200} height={250} />
+              <MusaLogoOfficial width={300} height={375} />
             </div>
             
             {/* Partículas orbitales */}
@@ -129,7 +129,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.div>
           
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold mb-8 tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold mb-6 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -143,7 +143,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.h1>
           
           <motion.p 
-            className="text-2xl md:text-4xl lg:text-5xl font-serif font-medium italic text-transparent bg-gradient-to-r from-primary/90 via-primary to-secondary/90 bg-clip-text mb-6 tracking-wide"
+            className="text-2xl md:text-4xl lg:text-5xl font-serif font-medium italic text-transparent bg-gradient-to-r from-primary/90 via-primary to-secondary/90 bg-clip-text mb-4 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -152,7 +152,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.p>
           
           <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-3xl mx-auto mb-12 font-light tracking-wide leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-3xl mx-auto mb-10 font-light tracking-wide leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
