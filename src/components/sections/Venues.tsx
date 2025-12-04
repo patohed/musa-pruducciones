@@ -12,17 +12,17 @@ export default function Venues({ client }: { client: 'visible' }) {
     {
       name: 'Hipódromo de Palermo',
       location: 'CABA',
-      image: 'https://images.unsplash.com/photo-1519167758481-83f29da8c898?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&h=600&fit=crop&q=80'
     },
     {
       name: 'Hipódromo de La Plata',
       location: 'La Plata, Buenos Aires',
-      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop&q=80'
     },
     {
       name: 'Hotel Howard Johnson La Plata',
       location: 'La Plata, Buenos Aires',
-      image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop&q=80'
     }
   ];
 

@@ -12,34 +12,34 @@ export default function Portfolio({ client }: { client: 'visible' }) {
   const portfolioItems = [
     {
       type: 'image',
-      url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop',
-      title: 'Evento Corporativo'
+      url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop&q=80',
+      title: 'Evento Corporativo Premium'
     },
     {
       type: 'image',
-      url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=800&fit=crop',
-      title: 'Festival Musical'
+      url: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&h=800&fit=crop&q=80',
+      title: 'Producción Musical'
     },
     {
       type: 'image',
-      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=800&fit=crop',
-      title: 'Ambientación Premium'
+      url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&h=800&fit=crop&q=80',
+      title: 'Ambientación Elegante'
     },
     {
       type: 'image',
-      url: 'https://images.unsplash.com/photo-1519167758481-83f29da8c898?w=1200&h=800&fit=crop',
-      title: 'Evento Social'
+      url: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1200&h=800&fit=crop&q=80',
+      title: 'Celebración Exclusiva'
     },
     {
       type: 'video',
       url: 'https://player.vimeo.com/video/76979871',
-      thumbnail: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&h=800&fit=crop',
-      title: 'Reel Institucional'
+      thumbnail: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1200&h=800&fit=crop&q=80',
+      title: 'Reel Audiovisual'
     },
     {
       type: 'image',
-      url: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&h=800&fit=crop',
-      title: 'Backstage'
+      url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&h=800&fit=crop&q=80',
+      title: 'Behind the Scenes'
     }
   ];
 
@@ -64,32 +64,71 @@ export default function Portfolio({ client }: { client: 'visible' }) {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {portfolioItems.map((item, index) => (
             <FadeIn key={index} delay={index * 0.1}>
-              <div className="group relative overflow-hidden rounded-xl bg-background border border-border hover:border-primary/50 transition-all duration-300 aspect-[4/3]">
-                <img 
-                  src={item.type === 'video' ? item.thumbnail : item.url}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+              <motion.div 
+                className="group relative overflow-hidden rounded-2xl bg-background border border-primary/25 hover:border-primary/70 transition-all duration-500 aspect-[4/3]"
+                whileHover={{ y: -8, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              >
+                {/* Neon glow around card */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/40 via-secondary/40 to-primary/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 w-full">
-                    <p className="text-lg font-semibold">{item.title}</p>
+                <div className="relative h-full overflow-hidden rounded-2xl">
+                  <img 
+                    src={item.type === 'video' ? item.thumbnail : item.url}
+                    alt={item.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop&q=80';
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient overlay with neon effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
                   </div>
-                </div>
-
-                {/* Video play button */}
-                {item.type === 'video' && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-8 w-8 text-primary-foreground ml-1" />
+                  
+                  {/* Content overlay */}
+                  <div className="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                    <div className="p-6 w-full relative z-10">
+                      <motion.p 
+                        className="text-xl font-thin uppercase tracking-widest text-foreground drop-shadow-[0_0_20px_rgba(255,159,205,0.8)]"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {item.title}
+                      </motion.p>
+                      <div className="mt-2 h-[2px] bg-gradient-to-r from-primary via-secondary to-transparent w-0 group-hover:w-full transition-all duration-700" />
                     </div>
                   </div>
-                )}
-              </div>
+
+                  {/* Video play button with neon */}
+                  {item.type === 'video' && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div 
+                        className="relative"
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        {/* Neon glow behind button */}
+                        <div className="absolute inset-0 bg-primary rounded-full blur-2xl opacity-60 animate-pulse" />
+                        <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary backdrop-blur-sm flex items-center justify-center shadow-2xl shadow-primary/50 border-2 border-primary/50">
+                          <Play className="h-10 w-10 text-primary-foreground ml-1 drop-shadow-lg" />
+                        </div>
+                      </motion.div>
+                    </div>
+                  )}
+                  
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/60 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/60 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </motion.div>
             </FadeIn>
           ))}
         </div>

@@ -60,19 +60,42 @@ export default function Events({ client }: { client: 'visible' }) {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {eventTypes.map((event, index) => (
             <FadeIn key={event.title} delay={index * 0.15}>
-              <div className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 p-8 hover:shadow-xl hover:shadow-primary/10">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors" />
-                <div className="relative z-10">
-                  <div className="mb-4 inline-flex p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <event.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-display font-bold mb-3 tracking-tight">{event.title}</h3>
-                  <p className="text-muted-foreground font-light leading-relaxed">{event.description}</p>
+              <motion.div 
+                className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-card/90 to-card/60 border border-primary/30 hover:border-primary/80 transition-all duration-500 p-10"
+                whileHover={{ y: -12, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              >
+                {/* Multiple neon glows */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/20 rounded-full blur-[80px] group-hover:bg-primary/40 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/15 rounded-full blur-[60px] group-hover:bg-secondary/30 transition-all duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/30 to-secondary/0 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Border glow animation */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-secondary to-primary animate-gradient" style={{ backgroundSize: '200% 100%' }} />
                 </div>
-              </div>
+                
+                <div className="relative z-10">
+                  <motion.div 
+                    className="mb-6 inline-flex p-5 rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/25 group-hover:from-primary/50 group-hover:to-secondary/50 transition-all duration-300 shadow-2xl shadow-primary/30"
+                    whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.15 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <event.icon className="h-10 w-10 text-primary drop-shadow-[0_0_12px_rgba(255,159,205,0.8)]" />
+                  </motion.div>
+                  <h3 className="text-2xl font-thin uppercase tracking-widest mb-4 text-foreground group-hover:text-primary transition-colors duration-300 drop-shadow-[0_0_20px_rgba(255,159,205,0.4)]">
+                    {event.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground font-light leading-relaxed tracking-wide">{event.description}</p>
+                </div>
+                
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-primary/40 rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/40 rounded-br-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             </FadeIn>
           ))}
         </div>

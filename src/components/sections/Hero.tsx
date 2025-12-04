@@ -18,12 +18,12 @@ export default function Hero({ client }: { client: 'load' }) {
       <div className="absolute inset-0 overflow-hidden opacity-30">
         {/* Blob 1 */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/40 to-secondary/40 blur-3xl animate-morph"
+          className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-primary/40 to-secondary/40 blur-3xl animate-morph"
           style={{ y: useTransform(scrollY, [0, 500], [0, -100]) }}
         />
         {/* Blob 2 */}
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-secondary/40 to-primary/40 blur-3xl animate-morph"
+          className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-secondary/40 to-primary/40 blur-3xl animate-morph"
           style={{ 
             y: useTransform(scrollY, [0, 500], [0, 100]),
             animationDelay: '2s' 
@@ -31,7 +31,7 @@ export default function Hero({ client }: { client: 'load' }) {
         />
         {/* Blob 3 */}
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-3xl animate-float"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-3xl animate-float"
           style={{ 
             y: useTransform(scrollY, [0, 500], [0, 50]),
             animationDelay: '1s' 
@@ -64,19 +64,19 @@ export default function Hero({ client }: { client: 'load' }) {
         >
           {/* Logo SVG animado moderno */}
           <motion.div
-            className="mb-8 inline-block relative"
+            className="mb-6 sm:mb-8 inline-block relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Anillos decorativos giratorios */}
+            {/* Anillos decorativos giratorios - ocultos en mobile */}
             <motion.div 
-              className="absolute -inset-12 border-2 border-primary/20 rounded-full"
+              className="hidden sm:block absolute -inset-8 sm:-inset-10 md:-inset-12 border-2 border-primary/20 rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             />
             <motion.div 
-              className="absolute -inset-16 border border-secondary/15 rounded-full"
+              className="hidden md:block absolute -inset-12 md:-inset-14 lg:-inset-16 border border-secondary/15 rounded-full"
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             />
@@ -95,14 +95,25 @@ export default function Hero({ client }: { client: 'load' }) {
               }}
             />
             
-            {/* Logo oficial con animaciones */}
+            {/* Logo oficial con animaciones - responsive */}
             <div className="relative">
-              <MusaLogoOfficial width={300} height={375} />
+              {/* Mobile: 160x200 */}
+              <div className="block sm:hidden">
+                <MusaLogoOfficial width={160} height={200} />
+              </div>
+              {/* Tablet: 220x275 */}
+              <div className="hidden sm:block md:hidden">
+                <MusaLogoOfficial width={220} height={275} />
+              </div>
+              {/* Desktop: 300x375 */}
+              <div className="hidden md:block">
+                <MusaLogoOfficial width={300} height={375} />
+              </div>
             </div>
             
-            {/* Partículas orbitales */}
+            {/* Partículas orbitales - ocultas en mobile */}
             <motion.div
-              className="absolute top-0 right-4 w-3 h-3 bg-primary rounded-full shadow-lg shadow-primary/50"
+              className="hidden sm:block absolute top-0 right-2 sm:right-4 w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full shadow-lg shadow-primary/50"
               animate={{
                 y: [0, -10, 0],
                 opacity: [0.5, 1, 0.5]
@@ -114,7 +125,7 @@ export default function Hero({ client }: { client: 'load' }) {
               }}
             />
             <motion.div
-              className="absolute bottom-4 left-0 w-2 h-2 bg-secondary rounded-full shadow-lg shadow-secondary/50"
+              className="hidden sm:block absolute bottom-4 left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-secondary rounded-full shadow-lg shadow-secondary/50"
               animate={{
                 y: [0, 10, 0],
                 opacity: [0.5, 1, 0.5]
@@ -129,7 +140,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.div>
           
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-light sm:font-normal mb-4 sm:mb-6 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -143,7 +154,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.h1>
           
           <motion.p 
-            className="text-2xl md:text-4xl lg:text-5xl font-serif font-medium italic text-transparent bg-gradient-to-r from-primary/90 via-primary to-secondary/90 bg-clip-text mb-4 tracking-wide"
+            className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif font-normal italic text-transparent bg-gradient-to-r from-primary/90 via-primary to-secondary/90 bg-clip-text mb-3 sm:mb-4 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -152,7 +163,7 @@ export default function Hero({ client }: { client: 'load' }) {
           </motion.p>
           
           <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-3xl mx-auto mb-10 font-light tracking-wide leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-10 font-light tracking-relaxed leading-relaxed px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -162,7 +173,7 @@ export default function Hero({ client }: { client: 'load' }) {
 
           <motion.a
             href="#nosotros"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-all hover:scale-105"
+            className="inline-flex items-center space-x-2 px-6 py-3 sm:px-8 sm:py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-normal text-sm sm:text-base tracking-wide transition-all hover:scale-105"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}

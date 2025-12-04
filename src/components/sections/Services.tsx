@@ -76,16 +76,36 @@ export default function Services({ client }: { client: 'visible' }) {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <FadeIn key={service.title} delay={index * 0.1}>
-              <div className="group p-6 rounded-xl bg-background border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 h-full">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="h-6 w-6 text-primary" />
+              <motion.div 
+                className="group relative p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 border border-primary/20 hover:border-primary/60 transition-all duration-500 h-full overflow-hidden"
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {/* Neon glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <motion.div 
+                    className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/40 group-hover:to-secondary/40 transition-all duration-300 shadow-lg shadow-primary/20"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                  >
+                    <service.icon className="h-7 w-7 text-primary drop-shadow-[0_0_8px_rgba(255,159,205,0.6)]" />
+                  </motion.div>
+                  <h3 className="text-xl font-thin uppercase tracking-wider mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-light leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="text-lg font-display font-semibold mb-2 tracking-tight">{service.title}</h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed">{service.description}</p>
-              </div>
+                
+                {/* Bottom glow line */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             </FadeIn>
           ))}
         </div>

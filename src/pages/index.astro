@@ -10,19 +10,34 @@ import Events from '../components/sections/Events';
 import Venues from '../components/sections/Venues';
 import Portfolio from '../components/sections/Portfolio';
 import Contact from '../components/sections/Contact';
+import SectionDivider from '../components/SectionDivider';
+import ScrollProgressBar from '../components/ScrollProgressBar';
 ---
 
 <Layout>
   <SmoothScroll client:load />
+  <ScrollProgressBar client:load />
   <Header client:load />
   
   <main>
     <Hero client:load />
+    
+    <SectionDivider variant="wave" client:visible />
     <About client:visible />
+    
+    <SectionDivider variant="particles" client:visible />
     <Services client:visible />
+    
+    <SectionDivider variant="glow" client:visible />
     <Events client:visible />
+    
+    <SectionDivider variant="gradient" client:visible />
     <Venues client:visible />
+    
+    <SectionDivider variant="wave" client:visible />
     <Portfolio client:visible />
+    
+    <SectionDivider variant="particles" client:visible />
     <Contact client:visible />
   </main>
   
